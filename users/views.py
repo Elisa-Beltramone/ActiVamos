@@ -8,9 +8,15 @@ def new_user(request):
         form = UserCreationForm(request.POST)
         if form.is_valid():
             form.save()
+            username = form.cleaned_data['username']
+            password = form.cleaned_data['password1']
+            user = authenticate(username=username, password=password)
+            login(request, user)
+            messages.success(request, f"Welcome {user}.")
             return redirect('index')
     else:
-        return render(request, 'new_user.html', {})
+        form = UserCreationForm()
+    return render(request, 'registration/new_user.html', {'form':form,})
 
 def login_user(request):
     if request.method == "POST":
@@ -24,7 +30,9 @@ def login_user(request):
             messages.success(request, ("There was an error."))
             return redirect('login_user')
     else:
-        return render(request, 'authenticate/login.html', {})
+        return render(request, 'registration/login.html', {})
 
 def logout_user(request):
-    return render(request, 'index.html', {})
+    logout(request)
+    messages.success(request, ("You were logged out!"))
+    return redirect('index')

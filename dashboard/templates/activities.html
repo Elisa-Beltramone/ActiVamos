@@ -1,0 +1,35 @@
+{% extends "base.html" %}
+
+{% block content %}
+
+<div class="text-center mt-3">
+    <br />
+    <h2>Actividades</h2>
+    <strong>Welcome {{ user }}.</strong> Planea tu agenda:
+    <br />
+</div>
+
+<div class="container px-4 text-center w-75">
+    <div class="row gx-5">
+        <div class="col">
+            <div class="p-3">Me interesan:</div>
+            <div class="text-center mt-3">
+            </div>
+            <br />
+            <button>Ver</button>
+        </div>
+        <div class="col">
+            <div class="p-3">Agendado:</div>
+            <br />
+            <button>Ver</button>
+        </div>
+        <div class="col">
+            <div class="p-3">Crear nuevo:</div>
+            <br />
+            <button>Ver</button>
+        </div>
+
+    </div>
+</div>
+
+{% endblock %}

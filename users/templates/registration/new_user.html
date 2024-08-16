@@ -1,0 +1,24 @@
+{% extends "base.html" %}
+
+{% block content %}
+
+{% if form.errors %}
+
+<div class="alert alert-warning alert-dismissible fade show w-50" role="alert">
+    <strong>There was an error.</strong> Please try again
+    <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+  </div>
+
+{% endif %}
+<div class="shadow p-3 mb-5 bg-body-tertiary rounded w-50 mx-auto">
+    <h2>Register</h2>
+    <form action="{% url 'new_user' %}" method="POST" class="mt-3">
+        {% csrf_token %}
+
+        {{ form.as_p }}
+        <br />
+        <button type="submit" class="btn btn-primary">Submit</button>
+    </form>
+</div>
+
+{% endblock %}

@@ -1,8 +1,8 @@
 {% extends "base.html" %}
 
 {% block content %}
-    <form class="mt-3">
-        {{ cf_token}}
+    <form action="" method="POST" class="mt-3">
+        {% csrf_token %}
         <div class="shadow p-3 mb-5 bg-body-tertiary rounded w-50 mx-auto">
             <h2>Login</h2>
             <div class="mb-3">
