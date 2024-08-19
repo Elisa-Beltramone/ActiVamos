@@ -9,27 +9,29 @@
   <p class="lead">Descubrí todas las actividades, eventos, talleres, clases y más <mark>donde estes.</mark></p>
 </div>
 
+{% if user.is_authenticated %}
+
+<button class="mt-3 d-grid gap-2 col-6 mx-auto w-25 rounded-pill">Buscar</button>
+
+{% else %}
 <div class="container px-4 text-center w-75">
   <div class="row gx-5">
     <div class="col">
       <div class="p-3">Crear una nueva actividad</div>
-      {% if user.is_authenticated %}
-      <div class="text-center mt-3">
-          <strong>Welcome {{ user }}. Add an event!</strong>
-      </div>
-      <br />
-      <button>Crear</button>
-      {% else %}
+      <br/>
       <p>Se parte de la comunidad para publicar tu actividad.</p>
-      {% endif %}
+      <a class="btn btn-outline-success" href="{% url 'new_user' %}">Registrate</a>
     </div>
-
     <div class="col">
       <div class="p-3">Encontrar y participar</div>
       <br />
-      <button>Buscar</button>
+      <form class="" role="search">
+        <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search"><br />
+        <button class="btn btn-outline-success" type="submit">Search</button>
+      </form>
     </div>
   </div>
 </div>
+{% endif %}
 
 {% endblock %}
