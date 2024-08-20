@@ -1,25 +1,14 @@
 {
-
     "builds": [{
-
-        "src": "FEMIGRUP/wsgi.py",
-
+        "src": "femigrup/wsgi.py",
         "use": "@vercel/python",
-
         "config": { "maxLambdaSize": "15mb", "runtime": "python3.9" }
-
     }],
 
     "routes": [
-
         {
-
             "src": "/(.*)",
-
-            "dest": "FEMIGRUP/wsgi.py"
-
+            "dest": "femigrup/wsgi.py"
         }
-
     ]
-
 }
