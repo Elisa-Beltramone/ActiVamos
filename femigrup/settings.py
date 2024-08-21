@@ -19,6 +19,7 @@ ALLOWED_HOSTS = ['.vercel.app']
 CSRF_TRUSTED_ORIGINS = ['https://acti-vamos.vercel.app']
 
 
+
 # Application definition
 
 INSTALLED_APPS = [
@@ -66,12 +67,20 @@ WSGI_APPLICATION = 'femigrup.wsgi.application'
 # Database
 # https://docs.djangoproject.com/en/5.0/ref/settings/#databases
 
+# DATABASES = {
+#     'default': {
+#         'ENGINE': 'django.db.backends.sqlite3',
+#         'NAME': BASE_DIR / 'db.sqlite3',
+#     }
+# }
+
 DATABASES = {
-    'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': BASE_DIR / 'db.sqlite3',
-    }
+    'default': dj_database_url.config(
+        default=config('DATABASE_URL', default=f'sqlite:///{os.path.join(BASE_DIR, "db.sqlite3")}')
+    )
 }
+
+# In this setup, the DATABASE_URL environment variable will be used to connect to a database like PostgreSQL in production, while SQLite is used as a fallback (mostly for local development).
 
 
 # Password validation
