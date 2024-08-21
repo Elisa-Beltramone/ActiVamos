@@ -18,8 +18,6 @@ DEBUG = config('DEBUG', default=False, cast=bool)
 ALLOWED_HOSTS = ['.vercel.app']
 CSRF_TRUSTED_ORIGINS = ['https://acti-vamos.vercel.app/']
 
-
-
 # Application definition
 
 INSTALLED_APPS = [
