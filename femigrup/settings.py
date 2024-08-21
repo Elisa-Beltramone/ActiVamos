@@ -16,7 +16,7 @@ SECRET_KEY = config('SECRET_KEY', default='fallback_secret_key')
 DEBUG = config('DEBUG', default=False, cast=bool)
 
 ALLOWED_HOSTS = ['.vercel.app']
-CSRF_TRUSTED_ORIGINS = ['https://acti-vamos.vercel.app']
+CSRF_TRUSTED_ORIGINS = ['https://acti-vamos.vercel.app/']
 
 
 
